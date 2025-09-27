@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>𝙇𝙞𝙠𝙨𝙫𝙖-𝙎𝙮𝙣𝙙𝙞𝙘𝙖𝙩𝙚</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #2e003e;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    h1 {
+      margin: 20px 0;
+      font-size: 2.5rem;
+      text-align: center;
+      background: linear-gradient(270deg, #ff00ff, #00ffff, #ff9900, #ff00ff);
+      background-size: 600% 600%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: wobble 5s infinite ease-in-out, gradientShift 10s ease infinite;
+    }
+
+    @keyframes wobble {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(1deg); }
+      50% { transform: rotate(0deg); }
+      75% { transform: rotate(-1deg); }
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+      width: 90%;
+      max-width: 800px;
+      padding: 20px;
+    }
+
+    .column {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .column h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      font-family: "Courier New", monospace;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .sped-corner h2 {
+      background: linear-gradient(270deg, #ff00ff, #00ffff, #ff9900, #ff00ff);
+      background-size: 600% 600%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: gradientShift 10s ease infinite;
+    }
+
+    .box {
+      background-color: #3d005e;
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: bold;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+
+    .box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .gradient-box {
+      background: linear-gradient(270deg, #ff0080, #7928ca, #00ffff, #ff9900, #ff0080);
+      background-size: 600% 600%;
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      font-size: 1.3rem;
+      font-weight: bold;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+      border: 3px solid #3d005e;
+      animation: slowGradient 12s ease infinite;
+      cursor: pointer;
+    }
+
+    @keyframes slowGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .volume-control {
+      position: fixed;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%) rotate(-90deg);
+      width: 150px;
+      height: 8px;
+      background: #4b0082;
+      border-radius: 5px;
+      outline: none;
+      box-shadow: 0 0 10px rgba(128, 0, 255, 0.6);
+      -webkit-appearance: none;
+    }
+
+    .volume-control::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #9b59b6;
+      cursor: pointer;
+      box-shadow: 0 0 8px #d08fff;
+      border: 2px solid #fff;
+    }
+
+    .volume-control::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #9b59b6;
+      cursor: pointer;
+      box-shadow: 0 0 8px #d08fff;
+      border: 2px solid #fff;
+    }
+
+    /* Discord Button */
+    .discord-button {
+      display: inline-block;
+      margin: 30px 0 20px 0;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: white;
+      background: linear-gradient(270deg, #7289da, #99aab5, #7289da);
+      background-size: 600% 600%;
+      border: none;
+      border-radius: 12px;
+      text-decoration: none;
+      text-align: center;
+      cursor: pointer;
+      animation: gradientShift 8s ease infinite;
+      box-shadow: 0 0 10px rgba(114, 137, 218, 0.6);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .discord-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(114, 137, 218, 0.8);
+    }
+  </style>
+</head>
+<body>
+  <h1>𝙇𝙞𝙠𝙨𝙫𝙖-𝙎𝙮𝙣𝙙𝙞𝙘𝙖𝙩𝙚</h1>
+
+  <div class="container">
+    <!-- Devs Section -->
+    <div class="column">
+      <h2>Devs</h2>
+      <div class="gradient-box" id="liksva-owner">𝙇𝙞𝙠𝙨𝙫𝙖-𝙊𝙬𝙣𝙚𝙧</div>
+      <div class="gradient-box">1𝙅𝙖𝙮𝙮_</div>
+      <div class="gradient-box">𝙈𝙧.𝙈𝙚𝙜𝙖𝙡𝙞𝙘𝙤𝙪𝙨</div>
+      <div class="gradient-box">𝙎𝙘𝙖𝙢𝙒𝙞𝙨𝙚</div>
+    </div>
+
+    <!-- Members Section -->
+    <div class="column">
+      <h2>Members</h2>
+      <div class="box">𝙃𝙖𝙥𝙥𝙮</div>
+      <div class="box" id="v1">𝙑1</div>
+      <div class="box">𝙍𝙚𝙖𝙥𝙚𝙧</div>
+    </div>
+
+    <!-- The Sped Corner Section -->
+    <div class="column sped-corner">
+      <h2>The Sped Corner</h2>
+      <div class="box" id="ziggit">𝙕𝙞𝙜𝙜𝙞𝙩</div>
+    </div>
+  </div>
+
+  <!-- Discord Button -->
+  <a href="https://discord.gg/9VTqzgbhe8" target="_blank" class="discord-button">Join Discord</a>
+
+  <!-- Background Music -->
+  <audio id="bg-music" loop muted>
+    <source src="67mangomason.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Volume slider -->
+  <input type="range" class="volume-control" id="volume-slider" min="0" max="1" step="0.01" value="0.5">
+
+  <script>
+    const audio = document.getElementById('bg-music');
+    const slider = document.getElementById('volume-slider');
+
+    function startAudio() {
+      audio.muted = false;
+      audio.volume = slider.value;
+      audio.play().catch(() => {
+        console.log('Autoplay blocked. Slide the volume to start music.');
+      });
+    }
+
+    slider.addEventListener('input', () => {
+      startAudio();
+      audio.volume = slider.value;
+    });
+
+    document.body.addEventListener('click', () => startAudio(), { once: true });
+
+    // Clicking Liksva-Owner replaces background music
+    const liksvaBox = document.getElementById('liksva-owner');
+    liksvaBox.addEventListener('click', () => {
+      audio.pause();
+      audio.src = 'Mangomason671.mp3';
+      audio.load();
+      audio.volume = slider.value;
+      audio.play();
+    });
+
+    // Clicking Ziggit replaces background music
+    const ziggitBox = document.getElementById('ziggit');
+    ziggitBox.addEventListener('click', () => {
+      audio.pause();
+      audio.src = 'Sigma6767.mp3';
+      audio.load();
+      audio.volume = slider.value;
+      audio.play();
+    });
+
+    // Clicking V1 replaces background music
+    const v1Box = document.getElementById('v1');
+    v1Box.addEventListener('click', () => {
+      audio.pause();
+      audio.src = 'shibiditoilet.mp3';
+      audio.load();
+      audio.volume = slider.value;
+      audio.play();
+    });
+  </script>
+</body>
+</html>
